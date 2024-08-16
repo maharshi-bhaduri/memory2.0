@@ -26,8 +26,6 @@ const search = async function (req, res) {
             return res.status(500).send('Failed to generate embedding');
         }
 
-        console.log('query embedding ', embedding);
-
         // Step 2: Initialize Pinecone client and query the embedding
         const pinecone = new Pinecone({
             apiKey: process.env.PINECONE_API_KEY
