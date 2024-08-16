@@ -37,7 +37,7 @@ const Landing = () => {
 
     return (
         <div
-            className="flex flex-col w-full md:w-2/3 px-4 transition-all duration-700 items-center justify-center h-screen relative"
+            className="flex flex-col w-full md:w-2/3 lg:w-1/2 px-4 transition-all duration-700 items-center justify-center h-screen relative"
         >
             <div
                 className={`w-full transition-all duration-700 ease-in-out m-4`}
