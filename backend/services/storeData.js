@@ -29,7 +29,7 @@ const storeData = async function (req, res) {
         }
 
         // Step 2: Send extracted text to the embedding API
-        const embeddingResponse = await axios.post('https://embedgen.postcloud.workers.dev', {
+        const embeddingResponse = await axios.post(process.env.CF_EMBED_GEN, {
             text: text
         });
 

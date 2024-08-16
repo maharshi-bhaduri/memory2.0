@@ -36,7 +36,7 @@ const Landing = () => {
     };
 
     return (
-        <div className="flex flex-col py-20 px-4 transition-all duration-700 items-center justify-center h-screen bg-gray-900 overflow-hidden relative">
+        <div className="flex flex-col py-20 px-4 transition-all duration-700 items-center justify-center h-screen relative">
             <div className={`w-2/3 max-w-2/3 transition-all duration-700 ease-in-out m-4 ${showResults ? 'translate-y-[-100px]' : ''}`}>
                 <SearchBar onResults={handleResults} onSubmit={handleSearchSubmit} />
             </div>

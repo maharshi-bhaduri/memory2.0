@@ -17,7 +17,7 @@ const search = async function (req, res) {
         }
 
         // Step 1: Generate embedding for the query
-        const embeddingResponse = await axios.post('https://embedgen.postcloud.workers.dev', {
+        const embeddingResponse = await axios.post(process.env.CF_EMBED_GEN, {
             text: query
         });
 
