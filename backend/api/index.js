@@ -1,8 +1,8 @@
 import Router from "router";
 import finalhandler from "finalhandler";
-import storeData from "../services/storeData.js";
-import search from "../services/search.js";
-import { allowCors } from "../utils/utils.js";
+import storeData from "../services/storeData";
+import search from "../services/search";
+import { allowCors } from "../utils/utils";
 
 const router = Router();
 router.post("/api/storeData", storeData);
