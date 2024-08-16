@@ -1,6 +1,5 @@
 import axios from 'axios';
-import pineconePkg from '@pinecone-database/pinecone';
-const { Pinecone: PineconeClient } = pineconePkg;
+import { Pinecone } from '@pinecone-database/pinecone';
 import { allowCors } from '../utils/utils.js';
 
 const search = async function (req, res) {
@@ -30,7 +29,7 @@ const search = async function (req, res) {
         console.log('query embedding ', embedding);
 
         // Step 2: Initialize Pinecone client and query the embedding
-        const pinecone = new PineconeClient({
+        const pinecone = new Pinecone({
             apiKey: process.env.PINECONE_API_KEY
         });
 

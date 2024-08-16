@@ -1,7 +1,6 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
-import pineconePkg from '@pinecone-database/pinecone';
-const { Pinecone: PineconeClient } = pineconePkg;
+import { Pinecone } from '@pinecone-database/pinecone';
 import { allowCors } from '../utils/utils.js';
 
 const storeData = async function (req, res) {
@@ -40,7 +39,7 @@ const storeData = async function (req, res) {
         }
 
         // Step 3: Initialize Pinecone client and store the embedding with metadata
-        const pinecone = new PineconeClient({
+        const pinecone = new Pinecone({
             apiKey: process.env.PINECONE_API_KEY
         });
 
