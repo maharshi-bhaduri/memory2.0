@@ -9,18 +9,16 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex justify-center items-center h-screen bg-gray-900">
-        <div className="flex-grow px-2 md:px-20">
-          <Brand />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Landing />
-              }
-            ></Route>
-          </Routes>
-        </div>
+      <div className="flex justify-center items-center h-screen bg-gray-900 overflow-hidden">
+        <Brand />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Landing />
+            }
+          ></Route>
+        </Routes>
       </div>
     </QueryClientProvider>
   );

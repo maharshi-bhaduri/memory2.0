@@ -13,15 +13,11 @@ const Result = ({ result }) => {
             href={result.id}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center py-2 whitespace-nowrap border border-gray-300 rounded-lg p-2
-               transition-colors duration-200 hover:bg-blue-900 hover:border-blue-400 break-words"
+            className="flex items-center py-2 border border-gray-300 rounded-lg p-2
+           transition-colors duration-200 hover:bg-blue-900 hover:border-blue-400 text-blue-400
+           "
         >
-            <div
-                className={`h-4 w-4 rounded-full ${getColorForScore(result.score)} mr-2`}
-            ></div>
-            <span className="text-blue-400 text-ellipsis break-words">
-                {result.metadata.title}
-            </span>
+            {result.metadata.title}
         </a>
 
     );
@@ -29,18 +25,20 @@ const Result = ({ result }) => {
 
 const ResultsList = ({ results }) => {
     return (
-        <div className="mt-4 w-full max-w-full">
-            <ul className="list-none flex flex-col items-center justify-center w-full">
-                {Array.isArray(results) ? results.map((result, index) => (
-                    <li key={index} className="w-full mb-2">
-                        <Result result={result} />
-                    </li>
-                )) :
-                    <div>
-                        Search or Feed
-                    </div>
-                }
-            </ul>
+        <div
+            className="mt-4 w-full max-w-full"
+        >
+            {Array.isArray(results) ? results.map((result, index) => (
+                <div key={index}
+                    className="w-full mb-2"
+                >
+                    <Result result={result} />
+                </div>
+            )) :
+                <div>
+                    Search or Feed
+                </div>
+            }
         </div>
     );
 };

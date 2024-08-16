@@ -36,12 +36,18 @@ const Landing = () => {
     };
 
     return (
-        <div className="flex flex-col py-20 px-4 transition-all duration-700 items-center justify-center h-screen relative">
-            <div className={`w-2/3 max-w-2/3 transition-all duration-700 ease-in-out m-4 ${showResults ? 'translate-y-[-100px]' : ''}`}>
+        <div
+            className="flex flex-col w-full md:w-2/3 px-4 transition-all duration-700 items-center justify-center h-screen relative"
+        >
+            <div
+                className={`w-full transition-all duration-700 ease-in-out m-4`}
+            >
                 <SearchBar onResults={handleResults} onSubmit={handleSearchSubmit} />
             </div>
             {(
-                <div className="transition-opacity duration-700 ease-in-out opacity-100">
+                <div
+                    className="w-full transition-opacity duration-700 ease-in-out opacity-100"
+                >
                     <ResultsList results={results} />
                 </div>
             )}
