@@ -36,7 +36,6 @@ const ResultsList = ({ results }) => {
                 </div>
             )) :
                 <div>
-                    Search or Feed
                 </div>
             }
         </div>
