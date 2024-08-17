@@ -13,9 +13,8 @@ const Result = ({ result }) => {
             href={result.id}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center py-2 border border-gray-300 rounded-lg p-2
-           transition-colors duration-200 hover:bg-blue-900 hover:border-blue-400 text-blue-400
-           "
+            className="flex items-center py-2 border border-gray-300 rounded-lg p-2 overflow-hidden
+           transition-colors duration-200 hover:bg-blue-900 hover:border-blue-400 text-blue-400"
         >
             {result.metadata.title}
         </a>
