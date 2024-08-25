@@ -10,13 +10,13 @@ const storeData = async function (req, res) {
     }
 
     try {
+        console.log('entered function')
         const { url } = req.body;
-
+        console.log('url ', url)
         if (!url) {
             return res.status(400).send('URL parameter is missing');
         }
 
-        // Step 1: Extract text and title from the provided URL
         const response = await axios.get(url);
         const html = response.data;
         const $ = cheerio.load(html);
@@ -27,7 +27,6 @@ const storeData = async function (req, res) {
             return res.status(400).send('No text content found in the provided URL');
         }
 
-        // Step 2: Send extracted text to the embedding API
         const embeddingResponse = await axios.post(process.env.CF_EMBED_GEN, {
             text: text
         });
@@ -38,7 +37,6 @@ const storeData = async function (req, res) {
             return res.status(500).send('Failed to generate embedding');
         }
 
-        // Step 3: Initialize Pinecone client and store the embedding with metadata
         const pinecone = new Pinecone({
             apiKey: process.env.PINECONE_API_KEY
         });
@@ -58,6 +56,7 @@ const storeData = async function (req, res) {
 
         res.status(200).json({ message: 'Data stored successfully' });
     } catch (error) {
+        console.error('Error: ', error.message)
         res.status(500).send(`Error: ${error.message}`);
     }
 };

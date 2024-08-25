@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Loader from './Loader'; // Adjust the path as necessary
 import axios from 'axios';
 
 const SearchBar = ({ onSubmit, onResults }) => {
     const [inputValue, setInputValue] = useState('');
     const [status, setStatus] = useState('');
+    const inputRef = useRef(null);  // Create a ref for the input element
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
     };
+
+    useEffect(() => {
+        if (status !== 'processing') {
+            inputRef.current.focus();  // Focus the input element whenever it's not processing
+        }
+    }, [status]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -51,6 +58,7 @@ const SearchBar = ({ onSubmit, onResults }) => {
                 placeholder="Search or paste a link..."
                 className="flex-grow p-2 bg-transparent outline-none text-white disabled:opacity-50 w-full"
                 disabled={isDisabled}
+                ref={inputRef}  // Attach the ref to the input element
             />
             <button
                 type="submit"
@@ -70,4 +78,3 @@ const SearchBar = ({ onSubmit, onResults }) => {
 };
 
 export default SearchBar;
-

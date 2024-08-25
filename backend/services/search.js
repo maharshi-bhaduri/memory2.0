@@ -15,7 +15,6 @@ const search = async function (req, res) {
             return res.status(400).send('Query parameter is missing');
         }
 
-        // Step 1: Generate embedding for the query
         const embeddingResponse = await axios.post(process.env.CF_EMBED_GEN, {
             text: query
         });
@@ -26,7 +25,6 @@ const search = async function (req, res) {
             return res.status(500).send('Failed to generate embedding');
         }
 
-        // Step 2: Initialize Pinecone client and query the embedding
         const pinecone = new Pinecone({
             apiKey: process.env.PINECONE_API_KEY
         });
